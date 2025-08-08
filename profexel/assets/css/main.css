@@ -4199,4 +4199,19 @@ input, select, textarea {
 	}
 
 	}
-	
+
+	.inner h1, .inner h2, .inner p, .inner a  {
+		  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+
+	}
+	#banner {
+		position: relative;
+	}
+	#banner video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      z-index: -1;
+	  max-width: 100%;
+    }
