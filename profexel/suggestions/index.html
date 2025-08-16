@@ -64,6 +64,20 @@
     h1 {
       margin: 0 !important;
     }
+    .mail-content-wrap {
+      width: auto; 
+      display: flex; 
+      flex: 1; 
+      flex-direction: column;
+      padding: 8px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mail-content-wrap textarea{
+      max-width: 500px;
+    }
+
   </style>
   		<link rel="stylesheet" href="../assets/css/main.css" />
 
@@ -78,31 +92,60 @@
   </div>
 
   <div class="iframe-container">
-    <iframe src="https://miro.com/app/live-embed/uXjVJUf-Bjw=/?embedMode=view_only_without_ui&moveToViewport=-1004,-664,2840,1381&embedId=667001869803" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+    <div class="mail-content-wrap" >
+      <h2>Profexel Suggestions</h2>
+      <textarea style="width: 100%;" name="suggestions" id="ssuggestions" placeholder="What kind of Sessions and Topics you expect from Profexel..."></textarea>
+     </div>
+      <div class="mail-content-wrap">
+        <textarea style="width: 100%;" name="suggestions" id="ksuggestions" placeholder="What kind of facitlites/Stall you expect from Profexel..."></textarea>
+     </div>
+      <div class="mail-content-wrap">
+        <textarea style="width: 100%;" name="suggestions" id="gsuggestions" placeholder="General Suggestions..."></textarea>
+     </div>
+     <div class="mail-content-wrap">
 
+      <ul class="actions">
+              <li>
+                <a id="dynamicMailer" href="mailto:profexelsuggetions@gmail.com?subject=suggestions&body=" class="button">
+                  Create my mail
+                </a></li>
+      </ul>
+    </div>
+
+
+    
   </div>
 
-   <div class="bottom-section">
-              <div style="width: auto; display: flex; flex: 1;">
-                      						<textarea style="width: 100%;" name="suggestions" id="suggestions" placeholder="Please write suggestions..."></textarea>
 
-              </div>
-              					<a id="dynamicMailer" href="mailto:profexelsuggetions@gmail.com?subject=suggestions&body=" style="display: flex; align-items: center;     font-size: 26px; margin-left: 8px;" > <i class="fa fa-envelope"  aria-hidden="true"></i> </a>
-
-
-
-
-  </div>
   <script>
-  const textarea = document.getElementById("suggestions");
+  const stextarea = document.getElementById("ssuggestions");
+  const ktextarea = document.getElementById("ksuggestions");
+  const gtextarea = document.getElementById("gsuggestions");
+
+
+
   const mailerLink = document.getElementById("dynamicMailer");
 
-  textarea.addEventListener("keyup", function () {
-    const suggestion = encodeURIComponent(textarea.value.trim());
-    const mailtoHref =
-      "mailto:profexelsuggetions@gmail.com?subject=Profexel Suggestions&body=" + suggestion;
-    mailerLink.href = mailtoHref;
+  stextarea.addEventListener("keyup", function () {
+    updateMailLink()
   });
+
+  ktextarea.addEventListener("keyup", function () {
+    updateMailLink()
+  });
+
+  gtextarea.addEventListener("keyup", function () {
+    updateMailLink()
+  });
+
+  function updateMailLink() {
+    const body = `Session Suggestions: ${stextarea.value}\n\n%20%3A%0D%0AStall Suggestions: ${ktextarea.value}\n\n%20%3A%0D%0AGeneral Suggestions: ${gtextarea.value}`;
+    mailerLink.href = `mailto:`;
+  
+    const mailtoHref =
+      "mailto:inspire.ism.state@gmail.com?subject=Profexel Suggestions&body=" + body;
+    mailerLink.href = mailtoHref;
+  }
 </script>
 
 </body>
