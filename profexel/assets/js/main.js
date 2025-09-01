@@ -141,5 +141,27 @@
 						$menu._hide();
 
 			});
+			var clock = $('.clock').FlipClock({
+    clockFace: 'DailyCounter',
+    autoStart: false,
+    callbacks: {
+      stop: function() {
+       // $('.message').html('The clock has stopped!')
+      }
+    }
+});
+
+var targetDate = new Date("2025-10-12T00:00:00");
+    var now = new Date();
+    var diffInSeconds = Math.floor((targetDate - now) / 1000);
+
+// set time
+clock.setTime(diffInSeconds);
+
+// countdown mode
+clock.setCountdown(true);
+
+// start the clock
+clock.start();
 
 })(jQuery);
