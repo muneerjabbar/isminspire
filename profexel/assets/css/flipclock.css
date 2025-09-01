@@ -351,6 +351,13 @@
 .flip-clock-dot.top { 
     top: 20px;
 }
+.flip-clock-divider { 
+    width: 10px
+}
+.flip-clock-dot {
+    width: 3px !important;
+    
+}
 
 }
 
